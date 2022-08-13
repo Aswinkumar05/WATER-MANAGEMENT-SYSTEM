@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Contact Form</title>
+        <link rel="stylesheet" href="contact.css">
+        <style>
+            #icons
+            {
+                width: 25px;
+                height: 20px;
+            }
+            /* For footer */
+.container{
+	max-width: 1170px;
+	margin:auto;
+}
+.row{
+	display: flex;
+	flex-wrap: wrap;
+}
+ul{
+	list-style: none;
+}
+.footer{
+	background-color: #24262b;
+    padding: 0 0 20px 0;
+}
+.footer-col{
+   width: 35%;
+   padding: 0 20px;
+}
+.footer-col h4{
+	font-size: 20px;
+	color: #ffffff;
+	text-transform: capitalize;
+	margin-bottom: 35px;
+	font-weight: 500;
+	position: relative;
+}
+.footer-col h4::before{
+	content: '';
+	position: absolute;
+	left:0;
+	bottom: -10px;
+	background-color: #e91e63;
+	height: 2px;
+	box-sizing: border-box;
+	width: 50px;
+}
+.footer-col ul li:not(:last-child){
+	margin-bottom: 10px;
+}
+.footer-col ul li{
+	font-size: 16px;
+	text-transform: capitalize;
+	color: #ffffff;
+	text-decoration: none;
+	font-weight: 300;
+	color: #bbbbbb;
+	display: block;
+	transition: all 0.3s ease;
+}
+.footer-col .social-links a{
+	display: inline-block;
+	height: 40px;
+	width: 40px;
+	background-color: rgba(255,255,255,0.2);
+	margin:0 10px 10px 0;
+	text-align: center;
+	line-height: 40px;
+	border-radius: 50%;
+	color: #ffffff;
+	transition: all 0.5s ease;
+}
+.footer-col .social-links a:hover{
+	color: #24262b;
+	background-color: #ffffff;
+}
+/*responsive*/
+@media(max-width: 767px){
+  .footer-col{
+    width: 50%;
+    margin-bottom: 30px;
+}
+}
+@media(max-width: 574px){
+  .footer-col{
+    width: 100%;
+}
+}
+.social-links img
+{
+    width: 40px;
+}
+#home-btn
+{
+    padding-right: 180px;
+}
+        </style>
+        <script>
+            function query()
+            {
+                document.write("YOUR QUERY IS SUBMITTED SUCCESSFULLY.");
+            }
+        </script>
+         <script>
+            function validemail()
+                {
+                    var email2=document.myform.email1.value;
+                    var atposition=email2.indexOf("@");
+                    var dotposition=email2.lastIndexOf(".");
+                    if(atposition<1 || dotposition< atposition+2 || dotposition+2>=email2.length)
+                    {
+                        alert("please provide valid email");
+                        return false;
+                    }
+                    else
+                    {
+                        return true;
+                    }
+                }
+        </script>
+        <script>
+            function validnumber()
+            {
+                var mnum=document.myform.number1.value;
+                if(mnum.length==10)
+                {
+                    return true;
+                }
+                else
+                {
+                    alert("Enter correct Mobile number");
+                    return false;
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div class="contact">
+            <form onsubmit="return validemail() && validnumber() && query() " name="myform">
+            <div class="row">
+                <div class="text-input">
+                    <input type="text" required id="name"><label for="name"><img src="https://www.logolynx.com/images/logolynx/4b/4beebce89d681837ba2f4105ce43afac.png" id="icons"> <span>Your Name</span> </label>
+                </div>
+                <div class="text-input">
+                    <input type="number" required id="number" name="number1"><label for="number"><img src="https://th.bing.com/th/id/OIP.sBQQvAEFPvGSn0JKejKP1QHaFv?w=211&h=180&c=7&o=5&dpr=1.25&pid=1.7" id="icons"> <span>Phone No.</span></label>
+                </div>
+            </div>
+                <div class="text-input">
+                    <input type="email" required id="email" name="email1"><label for="email"><img src="https://th.bing.com/th/id/OIP.Drm6nD4sJjhOW2k2MUU6AwHaHa?w=206&h=206&c=7&o=5&dpr=1.25&pid=1.7" id="icons">  <span>Email Id</span></label>
+                </div>
+                <div class="text-input">
+                    <textarea id="message" rows="8" required></textarea>
+                    <label for="message"><img src="https://th.bing.com/th/id/R.01dae149c00b0af14f0a0f94174c1fb4?rik=sD0ZxiVmNmyYaA&riu=http%3a%2f%2fblog.online-spellcheck.com%2fwp-content%2fuploads%2f2016%2f04%2fMessages-icon.png&ehk=9N9UbUYp1TQrG2SVSPnvNCg0TIfEB7vtVt9owXncg70%3d&risl=&pid=ImgRaw" id="icons"> <span>Your message</span></label>
+                </div>
+                <input type="submit" class="submit">
+            </form>
+        </div>
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+                    <a href="home.html" target="_self" id="home-btn"><h3><img src="https://e7.pngegg.com/pngimages/22/547/png-clipart-white-and-orange-icon-oregon-service-home-icon-miscellaneous-angle-thumbnail.png" height="80"></h3></a>
+                    <div class="footer-col">
+                        <h4>ADDRESS :-</h4>
+                        <ul>
+                            <li>AQUA WATER RESOURCES,</li>
+                            <li>RAM NAGAR,</li>
+                            <li>HYDERABAD,</li>
+                            <li>TELANGANA,INDIA.</li>
+                            <li>PIN CODE :- 500018.</li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>follow us</h4>
+                        <div class="social-links">
+                            <a href="https://www.facebook.com/" target="blank"><img src="https://cdn3.iconfinder.com/data/icons/capsocial-round/500/facebook-512.png"></a>
+                            <a href="https://twitter.com/?lang=en" target="blank"><img src="https://seeklogo.com/images/T/twitter-icon-circle-blue-logo-0902F48837-seeklogo.com.png"></a>
+                            <a href="https://www.google.com/" target="blank"><img src="https://tehnoblog.org/wp-content/uploads/2021/06/Google-Logo.png"></a>
+                            <a href="https://www.instagram.com/?hl=en" target="blank"><img src="https://pngfree.io/upload/cache/upload/imgs/lovepikHome/instagram-icon-instagram-logo-f350x650.png"></a>
+                        </div>
+                    </div>
+                </div>     
+            </div><br>
+       </footer>
+    </body>
+</html>

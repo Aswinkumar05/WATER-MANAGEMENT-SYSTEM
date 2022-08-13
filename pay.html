@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>payment</title>
+        <link rel="stylesheet" href="pay.css">
+        <style>
+            
+            /* width */
+            ::-webkit-scrollbar {
+              width: 20px;
+            }
+            
+            /* Track */
+            ::-webkit-scrollbar-track {
+              background: #e1c2f2; 
+            }
+             
+            /* Handle */
+            ::-webkit-scrollbar-thumb {
+              background: #828; 
+            }
+            
+            /* Handle on hover */
+            ::-webkit-scrollbar-thumb:hover {
+              background:rgb(41,58,58); 
+            }
+        </style>
+            <style>
+                form{float:center;}
+                body
+                {
+                    background-image: url("https://www.getbeyond.com/wp-content/uploads/2019/02/Payments-1200x628.png");
+                    background-size: cover;
+                }
+                 /* For footer */
+.container{
+	max-width: 1170px;
+	margin:auto;
+}
+.row{
+	display: flex;
+	flex-wrap: wrap;
+}
+ul{
+	list-style: none;
+}
+.footer{
+	background-color: #24262b;
+    padding: 0 0 20px 0;
+}
+.footer-col{
+   width: 35%;
+   padding: 0 20px;
+}
+.footer-col h4{
+	font-size: 20px;
+	color: #ffffff;
+	text-transform: capitalize;
+	margin-bottom: 35px;
+	font-weight: 500;
+	position: relative;
+}
+.footer-col h4::before{
+	content: '';
+	position: absolute;
+	left:0;
+	bottom: -10px;
+	background-color: #e91e63;
+	height: 2px;
+	box-sizing: border-box;
+	width: 50px;
+}
+.footer-col ul li:not(:last-child){
+	margin-bottom: 10px;
+}
+.footer-col ul li{
+	font-size: 16px;
+	text-transform: capitalize;
+	color: #ffffff;
+	text-decoration: none;
+	font-weight: 300;
+	color: #bbbbbb;
+	display: block;
+	transition: all 0.3s ease;
+}
+.footer-col .social-links a{
+	display: inline-block;
+	height: 40px;
+	width: 40px;
+	background-color: rgba(255,255,255,0.2);
+	margin:0 10px 10px 0;
+	text-align: center;
+	line-height: 40px;
+	border-radius: 50%;
+	color: #ffffff;
+	transition: all 0.5s ease;
+}
+.footer-col .social-links a:hover{
+	color: #24262b;
+	background-color: #ffffff;
+}
+/*responsive*/
+@media(max-width: 767px){
+  .footer-col{
+    width: 50%;
+    margin-bottom: 30px;
+}
+}
+@media(max-width: 574px){
+  .footer-col{
+    width: 100%;
+}
+}
+.social-links img
+{
+    width: 40px;
+}
+#home-btn
+{
+    padding-right: 180px;
+}
+            </style>
+            <br>
+        <style>
+            
+        </style>            
+    </head>
+    <body>
+        <hr><marquee style="color:darkred; font-size: 45px;font-family:Georgia, 'Times New Roman', Times, serif;" bgcolor="cornsilk" scrollamount="8" height="60px">
+            ** STAY HOME STAY SAFE. <img src="https://th.bing.com/th/id/OIP.BWwE99KgTCekFGDpDxNw_gHaHa?w=171&h=180&c=7&o=5&dpr=1.25&pid=1.7" class="tag"> WEAR MASK. <img src="https://th.bing.com/th/id/OIP.hjcgyiviNJ4F9ezQb4CigwHaE1?w=277&h=181&c=7&o=5&dpr=1.25&pid=1.7" class="tag"> SANITIZE YOUR HANDS. <img src="https://th.bing.com/th/id/OIP.-Yqh6XUQh-I9aJGCIf4udQHaHa?w=206&h=205&c=7&o=5&dpr=1.25&pid=1.7" class="tag"> MAINTAIN SOCIAL DISTANCE <img src="https://th.bing.com/th/id/OIP.9oNSWxBfFbz23PZPJ-BfGQHaHa?w=183&h=183&c=7&o=5&dpr=1.25&pid=1.7" class="tag"> **
+           </marquee><hr>
+        <script>
+            function getpaydet(){
+                var n = document.getElementById("name_id").value;
+                var m = document.getElementById("mob").value;
+                var e = document.getElementById("email").value;
+                var dets={"user":n,"mobile":m,"email":e}
+                console.log(dets)
+                var paydetails=localStorage.getItem("paydetails")
+                var detail=JSON.parse(paydetails||"[]")
+                detail.push(dets)
+                localStorage.setItem("paydetails",JSON.stringify(detail))
+                localStorage.setItem("currentname","")
+                localStorage.setItem("currentname",n)
+                JSON.stringify(localStorage.setItem("number",m))
+                JSON.stringify(localStorage.setItem("eml",e))             
+            }
+            function redirect(){
+                return true
+            }
+
+            function yesnoCheck() {
+                if (document.getElementById('yesCheck').checked) {
+                document.getElementById('ifYes').style.visibility = 'visible';
+                } else {
+                        document.getElementById('ifYes').style.visibility = 'hidden';
+                }
+                
+                if (document.getElementById('noCheck').checked) {
+                document.getElementById('ifNo').style.visibility = 'visible'; 
+                } else {
+                    document.getElementById('ifNo').style.visibility = 'hidden';
+                }
+                 
+            }
+            
+            function validnumber()
+                {
+                    var mnum=document.paydet.mnumber.value;
+                    if(mnum.length==10)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        alert("Enter correct Mobile number");
+                        return false
+                    }
+                }
+                function validemail()
+                {
+                    var email2=document.paydet.email1.value;
+                    var atposition=email2.indexOf("@");
+                    var dotposition=email2.lastIndexOf(".");
+                    if(atposition<1 || dotposition< atposition+2 || dotposition+2>=email2.length)
+                    {
+                        alert("please provide valid email");
+                        return false;
+                    }
+                }
+
+        </script>   
+      
+        <center>
+        <br><br>    
+        <form name="paydet" onsubmit="return redirect()&&validnumber()&&validemail()" method="POST" action="Cservlet">
+        <table  bordercolor="blue" cellpadding="20" bgcolor="cornsilk" class="list">
+            <tr id="heading"><td colspan="4"><center>
+                <p><h1><b>PAYMENT GATEWAY</b></h1></p></center>
+            </td>
+        </tr>
+            <tr>
+                 <td colspan="2"><h3>Fullname: </h3></td>
+                 
+                 <td colspan="2"><input type="text" placeholder="Enter your name" size="30" maxlength="30" name="name" id="name_id" required></td>
+                 
+            </tr>
+            <tr>
+                <td colspan="2"><h3>Mobile number:  </h3></td>
+                 <td colspan="2"><input type="number" placeholder="Enter your mobile number" size="30" maxlength="10" id="mob" name="mnumber" required></td>
+                
+                
+                
+           </tr>
+           <tr>
+
+
+                <td colspan="2"><h3>Email:</h3></td>
+                <td colspan="2"><input type="email" placeholder="Enter your email" size="30" maxlength="30" id="email" name="email1" required></td>
+                
+            </tr>
+            <tr>
+                <td><h3>Address:</h3></td>
+                <td>
+                    <textarea rows="5" cols="20" name="address1" required></textarea>
+                </td>
+            </tr>
+            <tr>
+            
+                <td colspan="2"><h3>Mode of payment:</h3></td>
+                <td colspan="2">
+                    <input type="radio" name="nb" onclick="javascript:yesnoCheck();" value="NB" id="yesCheck">Net Banking<br>
+                    <input type="radio" name="upi" onclick="javascript:yesnoCheck();" value="UPI" id="noCheck">UPI
+                   
+                </td>
+
+            </tr>
+            
+            <tr id="ifYes" style="visibility: hidden;">
+                <td colspan="2"><h3>Select your bank:<br><br>Account number :<br><br> IFSC Code :</h3></td>
+                <td colspan="2">
+                    <select size="1" name="bank">
+                        <option value="default" disabled selected>Select a bank</option>
+                        <option value="sbi">State Bank of India</option>
+                        <option value="canara">Canara Bank</option>
+                        <option value="hdfc">HDFC Bank</option>
+                        <option value="kvb">Karur Vysya Bank</option>
+                        <option value="sib">South Indian Bank</option>
+                        <option value="Alb">Allahabad Bank</option>
+                        <option value="Pop">Popular Bank</option>
+                    </select><br><br>
+                     <input type="text" required><br><br>
+                     <input type="text" required>
+                </td>
+            </tr>
+            
+            <tr id="ifNo" style="visibility: hidden;">
+                <td colspan="2"><h3>id:</h3></td>
+                <td colspan="2"><input type="text" placeholder="Enter your UPI id" id="upiid"></td>
+            </tr>
+            
+            
+            <tr>
+                <td colspan="4">
+                    <center><b><p>
+                        Rs 100/-
+                    </p></b></center>
+                </td>
+            </tr>
+        
+            
+
+            
+            
+            
+            
+            <tr><td colspan="4"><center>
+                   
+                    <input type="submit" id="sub" value="Pay" onclick="getpaydet()">
+                    <input type="reset" id="res"></center>
+                </td>
+            </tr>
+        </table>
+            
+        </form>
+        </center>
+    </body>
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <a href="home.html" target="_self" id="home-btn"><h3><img src="https://e7.pngegg.com/pngimages/22/547/png-clipart-white-and-orange-icon-oregon-service-home-icon-miscellaneous-angle-thumbnail.png" height="80"></h3></a>
+                <div class="footer-col">
+                    <h4>ADDRESS :-</h4>
+                    <ul>
+                        <li>AQUA WATER RESOURCES,</li>
+                        <li>RAM NAGAR,</li>
+                        <li>HYDERABAD,</li>
+                        <li>TELANGANA,INDIA.</li>
+                        <li>PIN CODE :- 500018.</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>follow us</h4>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/" target="blank"><img src="https://cdn3.iconfinder.com/data/icons/capsocial-round/500/facebook-512.png"></a>
+                        <a href="https://twitter.com/?lang=en" target="blank"><img src="https://seeklogo.com/images/T/twitter-icon-circle-blue-logo-0902F48837-seeklogo.com.png"></a>
+                        <a href="https://www.google.com/" target="blank"><img src="https://tehnoblog.org/wp-content/uploads/2021/06/Google-Logo.png"></a>
+                        <a href="https://www.instagram.com/?hl=en" target="blank"><img src="https://pngfree.io/upload/cache/upload/imgs/lovepikHome/instagram-icon-instagram-logo-f350x650.png"></a>
+                    </div>
+                </div>
+            </div>     
+        </div><br>
+   </footer>
+</html>

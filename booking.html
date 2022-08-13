@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>booking</title>
+        <link rel="stylesheet" href="book.css">
+        <style>
+            
+            /* width */
+            ::-webkit-scrollbar {
+              width: 20px;
+            }
+            
+            /* Track */
+            ::-webkit-scrollbar-track {
+              background: #e1c2f2; 
+            }
+             
+            /* Handle */
+            ::-webkit-scrollbar-thumb {
+              background: #828; 
+            }
+            
+            /* Handle on hover */
+            ::-webkit-scrollbar-thumb:hover {
+              background:rgb(41,58,58); 
+            }
+            body{
+                background-image: url("https://wp-assets.futurism.com/2019/09/biohackers-scammed-hydrogen-water-1200x630.jpg");
+            }
+            /* For footer */
+.container{
+	max-width: 1170px;
+	margin:auto;
+}
+.row{
+	display: flex;
+	flex-wrap: wrap;
+}
+ul{
+	list-style: none;
+}
+.footer{
+	background-color: #24262b;
+    padding: 0 0 20px 0;
+}
+.footer-col{
+   width: 35%;
+   padding: 0 20px;
+}
+.footer-col h4{
+	font-size: 20px;
+	color: #ffffff;
+	text-transform: capitalize;
+	margin-bottom: 35px;
+	font-weight: 500;
+	position: relative;
+}
+.footer-col h4::before{
+	content: '';
+	position: absolute;
+	left:0;
+	bottom: -10px;
+	background-color: #e91e63;
+	height: 2px;
+	box-sizing: border-box;
+	width: 50px;
+}
+.footer-col ul li:not(:last-child){
+	margin-bottom: 10px;
+}
+.footer-col ul li{
+	font-size: 16px;
+	text-transform: capitalize;
+	color: #ffffff;
+	text-decoration: none;
+	font-weight: 300;
+	color: #bbbbbb;
+	display: block;
+	transition: all 0.3s ease;
+}
+.footer-col .social-links a{
+	display: inline-block;
+	height: 40px;
+	width: 40px;
+	background-color: rgba(255,255,255,0.2);
+	margin:0 10px 10px 0;
+	text-align: center;
+	line-height: 40px;
+	border-radius: 50%;
+	color: #ffffff;
+	transition: all 0.5s ease;
+}
+.footer-col .social-links a:hover{
+	color: #24262b;
+	background-color: #ffffff;
+}
+/*responsive*/
+@media(max-width: 767px){
+  .footer-col{
+    width: 50%;
+    margin-bottom: 30px;
+}
+}
+@media(max-width: 574px){
+  .footer-col{
+    width: 100%;
+}
+}
+.social-links img
+{
+    width: 40px;
+}
+#home-btn
+{
+    padding-right: 180px;
+}
+        </style>
+            <style>
+                form{float:center;}
+            </style>           
+    </head>
+    <body>
+        <hr><marquee style="color:green;font-size:45px;font-family:Georgia, 'Times New Roman', Times, serif;float: right;" bgcolor="cornsilk" scrollamount="8" height="60px">
+            **** STAY HOME STAY SAFE.<img src="https://th.bing.com/th/id/OIP.BWwE99KgTCekFGDpDxNw_gHaHa?w=171&h=180&c=7&o=5&dpr=1.25&pid=1.7" class="tag"> WEAR MASK. <img src="https://th.bing.com/th/id/OIP.hjcgyiviNJ4F9ezQb4CigwHaE1?w=277&h=181&c=7&o=5&dpr=1.25&pid=1.7" class="tag"> SANITIZE YOUR HANDS. <img src="https://th.bing.com/th/id/OIP.-Yqh6XUQh-I9aJGCIf4udQHaHa?w=206&h=205&c=7&o=5&dpr=1.25&pid=1.7" class="tag"> MAINTAIN SOCIAL DISTANCE<img src="https://th.bing.com/th/id/OIP.9oNSWxBfFbz23PZPJ-BfGQHaHa?w=183&h=183&c=7&o=5&dpr=1.25&pid=1.7" class="tag"> ****
+           </marquee><hr>
+        <script>
+            function getslot(){
+                var d=document.getElementById("cal").value;
+                var s=document.getElementById("slot").value;
+                var slot1={"date":d,"slot":s}
+                console.log(slot1)
+                var slotdet=localStorage.getItem("slotdet")
+                var sl=JSON.parse(slotdet||"[]")
+                sl.push(slot1)
+                localStorage.setItem("slotdet",JSON.stringify(sl))
+                JSON.stringify(localStorage.setItem("dat",d))
+                JSON.stringify(localStorage.setItem("sl",s))
+            }
+            function redirect(){
+                return true
+            }
+
+            function validnumber()
+                {
+                    var mnum=document.myform.mob.value;
+                    if(mnum.length==10)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        alert("Enter correct Mobile number");
+                        return false
+                    }
+                }
+                function validemail()
+                {
+                    var email2=document.myform.email.value;
+                    var atposition=email2.indexOf("@");
+                    var dotposition=email2.lastIndexOf(".");
+                    if(atposition<1 || dotposition< atposition+2 || dotposition+2>=email2.length)
+                    {
+                        alert("please provide valid email");
+                        return false
+                    }
+                }   
+                function validdate()
+                {
+                    var curdate=new Date();
+                    var dob2=new Date(document.myform.date1.value);
+                    if(dob2<curdate)
+                    {
+                        alert("Enter correct Date");
+                        return false;
+                    }
+                } 
+        </script>
+        
+        <center>
+            
+        <form name="myform" action="Bservlet" method="post" onsubmit="return redirect() && validnumber() && validemail() && validdate()">
+        <table  bordercolor="blue" cellpadding="20" bgcolor="cornsilk" class="list">
+            <tr id="heading"><td colspan="4"><center>
+                <p><h1><i> BOOK YOUR ORDER</i></h1></p></center>
+            </td>
+        </tr>
+            <tr>
+                 <td><h3>Firstname: </h3></td>
+                 <td><input type="text" placeholder="Enter your first name" size="30" maxlength="30" name="fname" required></td>
+                 
+            </tr>
+             <tr>
+                 <td><h3>Lastname: </h3></td>
+                 <td><input type="text" placeholder="Enter your last name" size="30" maxlength="30" name="lname" required></td>
+                 
+            </tr>
+           <tr>
+                <td><h3>Email:</h3></td>
+                <td><input type="email" placeholder="Enter your email" size="30" maxlength="30" name="email"></td>
+                
+            </tr>
+            <tr>
+                <td><h3>Mobile number:  </h3></td>
+                 <td><input type="number" placeholder="Enter your mobile number" size="30" maxlength="10" name="mob" ret required></td>
+            </tr>
+            <tr>
+                <td><h3>Delivery date:</h3></td>
+                <td><input type="date" id="cal" name="date1"  min="today" required></td>
+            </tr>
+            <tr>
+                <td><h3>Delivery timings:</h3></td>
+                <td>
+                    <input type="time">
+                </td>
+            </tr>
+            
+                
+            <tr>
+                <td><h3>Select Quantity:(Normal Water 10litres)</h3></td>
+                <td><input type="number" name="n10"></td>
+            </tr>
+            <tr>
+                <td><h3>Select Quantity:(Normal Water 20litres)</h3></td>
+                <td><input type="number" name="n20"></td>
+            </tr>
+            <tr>
+                <td><h3>Select Quantity:(Cool Water 10litres)</h3></td>
+                <td><input type="number" name="c10"></td>
+            </tr>
+            <tr>
+                <td><h3>Select Quantity:(Cool Water 20litres)</h3></td>
+                <td><input type="number" name="c20"></td>
+            </tr>
+            <tr>
+                <td><h3>Address:</h3></td>
+                <td>
+                    <textarea rows="5" cols="20" name="address" required></textarea>
+                </td>
+            </tr>
+            
+            <tr><td colspan="2"><center>
+                    <input type="radio" name="status">Notify me the status via email<br>
+                    <input type="radio"  name="status">Notify me the status via sms<br>
+                    <input type="checkbox" required>I agree to terms and conditions<br><br>
+                    <input type="submit" id="sub" onclick="getslot()">
+                    <input type="reset" id="res"></center>
+                </td>
+            </tr>
+        </table>    
+        </form>
+        </center>
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+                    <a href="home.html" target="_self" id="home-btn"><h3><img src="https://e7.pngegg.com/pngimages/22/547/png-clipart-white-and-orange-icon-oregon-service-home-icon-miscellaneous-angle-thumbnail.png" height="80"></h3></a>
+                    <div class="footer-col">
+                        <h4>ADDRESS :-</h4>
+                            <ul>
+                                <li>AQUA WATER RESOURCES,</li>
+                                <li>RAM NAGAR,</li>
+                                <li>HYDERABAD,</li>
+                                <li>TELANGANA,INDIA.</li>
+                                <li>PIN CODE :- 500018.</li>
+                            </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>follow us</h4>
+                        <div class="social-links">
+                            <a href="https://www.facebook.com/" target="blank"><img src="https://cdn3.iconfinder.com/data/icons/capsocial-round/500/facebook-512.png"></a>
+                            <a href="https://twitter.com/?lang=en" target="blank"><img src="https://seeklogo.com/images/T/twitter-icon-circle-blue-logo-0902F48837-seeklogo.com.png"></a>
+                            <a href="https://www.google.com/" target="blank"><img src="https://tehnoblog.org/wp-content/uploads/2021/06/Google-Logo.png"></a>
+                            <a href="https://www.instagram.com/?hl=en" target="blank"><img src="https://pngfree.io/upload/cache/upload/imgs/lovepikHome/instagram-icon-instagram-logo-f350x650.png"></a>
+                        </div>
+                    </div>
+                </div>     
+            </div><br>
+       </footer>
+    </body>
+</html>

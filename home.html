@@ -1,0 +1,112 @@
+
+<html>
+    <head>
+        <title>Home Page</title>
+        <link rel="stylesheet" href="home.css">
+        <script>
+            function message()
+            {
+                confirm("Are you sure you want to log out");
+            }
+        </script>
+        
+        <style>
+            
+            /* width */
+            ::-webkit-scrollbar {
+              width: 20px;
+            }
+            
+            /* Track */
+            ::-webkit-scrollbar-track {
+              background: #e1c2f2; 
+            }
+             
+            /* Handle */
+            ::-webkit-scrollbar-thumb {
+              background: #828; 
+            }
+            
+            /* Handle on hover */
+            ::-webkit-scrollbar-thumb:hover {
+              background:rgb(41,58,58); 
+            }
+            #foot
+            {
+                font-size: 15px;
+                color:rgb(125, 34, 178);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="outer">
+                <hr><marquee style="color:green;font-size:45px;font-family:Georgia, 'Times New Roman', Times, serif;float: right;" bgcolor="cornsilk" scrollamount="8" height="60px">
+                 **** STAY HOME STAY SAFE.<img src="https://th.bing.com/th/id/OIP.BWwE99KgTCekFGDpDxNw_gHaHa?w=171&h=180&c=7&o=5&dpr=1.25&pid=1.7" class="tag"> WEAR MASK. <img src="https://th.bing.com/th/id/OIP.hjcgyiviNJ4F9ezQb4CigwHaE1?w=277&h=181&c=7&o=5&dpr=1.25&pid=1.7" class="tag"> SANITIZE YOUR HANDS. <img src="https://th.bing.com/th/id/OIP.-Yqh6XUQh-I9aJGCIf4udQHaHa?w=206&h=205&c=7&o=5&dpr=1.25&pid=1.7" class="tag"> MAINTAIN SOCIAL DISTANCE<img src="https://th.bing.com/th/id/OIP.9oNSWxBfFbz23PZPJ-BfGQHaHa?w=183&h=183&c=7&o=5&dpr=1.25&pid=1.7" class="tag"> ****
+                </marquee><hr>
+                <div class="menu-bar"> 
+                    <ul>
+                        <li class="active">
+                            <a href="home.html"><img src="https://th.bing.com/th/id/OIP.KofAP-Ti9KuuIqFOy9RHVgHaF5?w=226&h=180&c=7&o=5&dpr=1.25&pid=1.7" class="icons"></i> Home</a>
+                        </li>
+                        <li>
+                            <a href="aboutus.html"><img src="https://www.seekpng.com/png/detail/41-410093_circled-user-icon-user-profile-icon-png.png" class="icons">About Us</a>
+                        </li>
+                        <li>
+                            <a href="booking.html"><img src="https://maxcdn.icons8.com/Share/icon/p1em/Time_And_Date/calendar1600.png" class="icons">Booking</a>
+                        </li>
+                        <li>
+                            <a href="bookorder.html"><img src="data:image/jpeg;base64,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" class="icons">How to book an order</a>
+                        </li>
+                        <li>
+                            <a href="contact.html"><img src="https://th.bing.com/th/id/OIP.j4SVnUtF6-EZFFWjDeh1kwHaHa?w=211&h=211&c=7&o=5&dpr=1.25&pid=1.7" class="icons"> Contact Us</a>
+                        </li>
+                        <li><a href="login page.html"  class="log-out" onclick="message()"><img src="https://th.bing.com/th/id/OIP.3bgE8Tx5vhLAw4dOhoZ-VwHaHa?w=179&h=180&c=7&o=5&dpr=1.25&pid=1.7"></a>
+                            <div class="sub-menu1">
+                                <ul>
+                                    <li>
+                                       <a href="login page.html" onclick="message()">Log Out</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+            </div>
+            <br>
+            <div class="slider">
+                <div class="load">
+                </div>
+            </div>
+            <div class="footer">
+                <br><br>
+                <footer class="footer">
+                    <div class="container">
+                        <div class="row">
+                            <a href="home.html" target="_self" id="home-btn"><h3><img src="https://e7.pngegg.com/pngimages/22/547/png-clipart-white-and-orange-icon-oregon-service-home-icon-miscellaneous-angle-thumbnail.png" height="80"></h3></a>
+                            <div class="footer-col">
+                                <h4>ADDRESS :-</h4>
+                                <ul>
+                                    <li>AQUA WATER RESOURCES,</li>
+                                    <li>RAM NAGAR,</li>
+                                    <li>HYDERABAD,</li>
+                                    <li>TELANGANA,INDIA.</li>
+                                    <li>PIN CODE :- 500018.</li>
+                                </ul>
+                            </div>
+                            <div class="footer-col">
+                                <h4>follow us</h4>
+                                <div class="social-links">
+                                    <a href="https://www.facebook.com/" target="blank"><img src="https://cdn3.iconfinder.com/data/icons/capsocial-round/500/facebook-512.png"></a>
+                                    <a href="https://twitter.com/?lang=en" target="blank"><img src="https://seeklogo.com/images/T/twitter-icon-circle-blue-logo-0902F48837-seeklogo.com.png"></a>
+                                    <a href="https://www.google.com/" target="blank"><img src="https://tehnoblog.org/wp-content/uploads/2021/06/Google-Logo.png"></a>
+                                    <a href="https://www.instagram.com/?hl=en" target="blank"><img src="https://pngfree.io/upload/cache/upload/imgs/lovepikHome/instagram-icon-instagram-logo-f350x650.png"></a>
+                                </div>
+                            </div>
+                        </div>     
+                    </div><br>
+               </footer>
+            </div>
+            </div>
+        </div>
+    </body>
+</html>
